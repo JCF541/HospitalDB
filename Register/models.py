@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class Tutor(models.Model):
     name = models.CharField(max_length=254)
@@ -10,7 +11,6 @@ class Tutor(models.Model):
 class Hospital(models.Model):
     name = models.CharField(max_length=254)
     loc_state = models.CharField(max_length=254)
-    loc_city = models.CharField(max_length=254)
 
     def __str__(self):
         return self.name
