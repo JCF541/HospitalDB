@@ -41,3 +41,8 @@ def register_tutor(request):
         form = registroTutor()
     return render(request, 'registro_tutor.html', {'form':form})
 
+def delete_pt(request, Patient_id):
+    patient = Patient.objects.get(pk=Patient_id)
+    patient.delete()
+    return redirect('index')
+

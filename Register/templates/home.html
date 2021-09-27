@@ -1,5 +1,33 @@
 {%extends 'base.html'%}
 {%block title%}Home{%endblock%}
 {%block content%}
-<h1>Hello World!</h1>
+<div class="container">
+    <ol class="breadcrumb my-4">
+      <li class="breadcrumb-item active">Registro Pacientes</li>
+    </ol>
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Sexo</th>
+          <th>Edad</th>
+          <th>Actualizar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for patient in Patients %}
+          <tr>
+            <td>{{ patient.f_name }}</td>
+            <td>{{ patient.l_name }}</td>
+            <td>{{ patient.gender }}</td>
+            <td>{{ patient.age }}</td>
+            <td><button type="button" class="btn btn-warning">Actualizar</button></td>
+            <td><a href="{%url 'delete_pt' patient.id%}" class = "btn btn-outline-danger btn-sm">Borrar</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {%endblock%}
